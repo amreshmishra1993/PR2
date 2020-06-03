@@ -1,0 +1,6 @@
+<div *ngIf="isItemClick;else formInput">
+    <app-well-list (handleSource)="getSource($event)" [items]="items"></app-well-list>
+</div>
+<ng-template #formInput>
+    <app-well (onSubmitClick)="handleSubmitClick($event)" [formValue]="item"></app-well>
+</ng-template>

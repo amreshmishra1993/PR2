@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="d-flex">
+            <th class="col-3">Name</th>
+            <th class="col-3">Type</th>
+            <th class="col-4">Source</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of items">
+          <tr class="d-flex">
+            <td class="text-danger col-3">{{ item.name }}</td>
+            <td class="col-3" [ngClass]="{
+              'bg-rls': item.type === 'rls',
+              'bg-danger': item.type === 'esp'
+            }" [ngStyle]="{ color: changeColor(item.type) }">{{ item.type }}</td>
+            <td class="text-danger col-4" style="cursor: pointer;" (click)="onSourceClick(item)">{{ item.sourceKey }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
