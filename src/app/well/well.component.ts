@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, Output, EventEmitter, ViewChild, Input } from '@angular/core';
+import { ListModel } from '../shared/well-list.model';
 
 @Component({
   selector: 'app-well',
@@ -9,7 +10,7 @@ export class WellComponent implements OnInit {
   @Output() onSubmitClick = new EventEmitter<{ name: string, type: string }>()
   @ViewChild('inputName') nameInput: ElementRef
   @ViewChild('inputType') typeInput: ElementRef
-  @Input() formValue: {name:string,type:string,sourceKey:number}
+  @Input() formValue:ListModel
   constructor() { }
 
   ngOnInit(): void {

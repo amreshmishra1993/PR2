@@ -6,14 +6,15 @@ import { ListModel } from './shared/well-list.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  items = [
-    {name:"TestRSl801",type: "rls",sourceKey:1001011}
+  items:ListModel[] = [
+    new ListModel("TestRLS801","rls",1001011),
+    new ListModel("TestESP801","esp",1001021)
   ]
   sourceKey = [1001011, 100101112, 10011211, 1101011]
   isItemClick: boolean = true;
   item: ListModel
 
-  handleSubmitClick(value: { name: string, type: string,sourceKey:number }) {
+  handleSubmitClick(value:ListModel) {
     const index = Math.floor(Math.random() * this.sourceKey.length)
     value.sourceKey = this.sourceKey[index]
     this.items.push(value)

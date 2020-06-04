@@ -1,22 +1,22 @@
-import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
-import {ListModel} from '../shared/well-list.model'
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { ListModel } from '../shared/well-list.model'
 @Component({
   selector: 'app-well-list',
   templateUrl: './well-list.component.html',
   styleUrls: ['./well-list.component.css']
 })
 export class WellListComponent implements OnInit {
-@Output() handleSource = new EventEmitter<ListModel>()
-@Input() items:ListModel[]
-  constructor() {}
+  @Output() handleSource = new EventEmitter<ListModel>()
+  @Input() items: ListModel[]
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  changeColor(type:string){
+  changeColor(type: string) {
     return type === 'rls' ? 'white' : 'black'
   }
 
-  onSourceClick(val:ListModel){
+  onSourceClick(val: ListModel) {
     this.handleSource.emit(val)
   }
 }
